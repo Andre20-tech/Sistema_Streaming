@@ -6,7 +6,7 @@ Este é um projeto de sistema de streaming simples, desenvolvido como parte do m
 ## Funcionalidades
 
 - Cadastro e login de usuários.
-- Interface para asistir/ver filmes (simuladas).
+- Interface para Assistir/ver filmes (simuladas).
 - Sistema de Avaliações/comentarios.
 
 ## Tecnologias Utilizadas
