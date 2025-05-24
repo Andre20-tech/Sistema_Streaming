@@ -5,13 +5,13 @@ Este é um projeto de sistema de streaming simples, desenvolvido como parte do m
 
 ## Funcionalidades
 
--Cadastro e login de usuários.
--Interface para asistir/ver filmes (simuladas).
--Sistema de Avaliações/comentarios.
+- Cadastro e login de usuários.
+- Interface para asistir/ver filmes (simuladas).
+- Sistema de Avaliações/comentarios.
 
-##Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
--Frontend: javaScript, HTML/CSS.
--Backend: PHP(sem fremeworks).
--Banco de dados: MySQL.
--Outros: Apache(XAMPP), PHPMyadmim.
+- Frontend: javaScript, HTML/CSS.
+- Backend: PHP(sem fremeworks).
+- Banco de dados: MySQL.
+- Outros: Apache(XAMPP), PHPMyadmim.
