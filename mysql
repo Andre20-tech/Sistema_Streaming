@@ -1,0 +1,81 @@
+create database SF;
+
+use SF;
+
+CREATE TABLE usuario (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    sobrenome VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    senha VARCHAR(100),
+    data_nascimento DATE
+);
+
+CREATE TABLE plano (
+    id_plano INT AUTO_INCREMENT PRIMARY KEY,
+    nome_plano VARCHAR(50),
+    preco_mensal DECIMAL(6,2),
+    resolucao_maxima VARCHAR(20),
+    qtd_telas INT
+);
+
+CREATE TABLE assinatura (
+    id_assinatura INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_plano INT,
+    data_inicio DATE,
+    data_fim DATE,
+    status VARCHAR(20),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+    FOREIGN KEY (id_plano) REFERENCES plano(id_plano)
+);
+
+CREATE TABLE filme (
+    id_filme INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100),
+    ano_lancamento YEAR,
+    duracao INT,
+    sinopse TEXT,
+    classificacao_etaria VARCHAR(10)
+);
+
+CREATE TABLE genero (
+    id_genero INT AUTO_INCREMENT PRIMARY KEY,
+    nome_genero VARCHAR(50)
+);
+
+/* 
+relacionamentos
+*/
+
+CREATE TABLE avaliacao (
+    id_avaliacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_filme INT,
+    nota DECIMAL(2,1),
+    comentario TEXT,
+    data_avaliacao DATE,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+    FOREIGN KEY (id_filme) REFERENCES filme(id_filme)
+);
+
+CREATE TABLE assistido (
+    id_usuario INT,
+    id_filme INT,
+    data_assistido DATETIME,
+    PRIMARY KEY (id_usuario, id_filme, data_assistido),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+    FOREIGN KEY (id_filme) REFERENCES filme(id_filme)
+);
+
+CREATE TABLE filme_genero (
+    id_filme INT,
+    id_genero INT,
+    PRIMARY KEY (id_filme, id_genero),
+    FOREIGN KEY (id_filme) REFERENCES filme(id_filme),
+    FOREIGN KEY (id_genero) REFERENCES genero(id_genero)
+);
+
+
+
+
