@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require '../db.php';
 
 $id = $_GET['id'] ?? null;
 
@@ -8,6 +8,6 @@ if ($id) {
     $stmt->execute([$id]);
 }
 
-header("Location: index.php");
+header("Location: usuarios.php");
 exit();
 ?>

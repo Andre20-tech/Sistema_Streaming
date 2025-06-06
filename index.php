@@ -1,42 +1,36 @@
-<?php
-require 'db.php';
+<?php 
 
-$stmt = $pdo->query("SELECT * FROM usuario");
-$usuarios = $stmt->fetchAll();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Usuários</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Lista de Usuários</h1>
-    <a href="add_user.php">Adicionar Novo Usuário</a>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>Email</th>
-            <th>Data de Nascimento</th>
-            <th>Ações</th>
-        </tr>
-        <?php foreach ($usuarios as $u): ?>
-        <tr>
-            <td><?= $u['id_usuario'] ?></td>
-            <td><?= $u['nome'] ?></td>
-            <td><?= $u['sobrenome'] ?></td>
-            <td><?= $u['email'] ?></td>
-            <td><?= $u['data_nascimento'] ?></td>
-            <td>
-                <a href="edit_user.php?id=<?= $u['id_usuario'] ?>">Editar</a> |
-                <a href="delete_user.php?id=<?= $u['id_usuario'] ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card p-4 shadow-lg" style="width: 350px;">
+        <h2 class="text-center mb-4">Credenciais de Acesso</h2>
+        <form action="login.php" method="POST">
+            <div class="mb-3">
+                <label for="login" class="form-label">Login</label>
+                <input type="text" class="form-control" id="login" name="email" placeholder="Digite seu email" required>
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+
+            <a href="usuarios/cadastro.php" class="btn btn-secondary w-100 mt-2">Cadastrar</a>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
